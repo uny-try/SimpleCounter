@@ -7,8 +7,11 @@ namespace SimpleCounter;
 public partial class SimpleCounterViewModel : ObservableObject
 {
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsHighCount))]
     [NotifyCanExecuteChangedFor(nameof(DecrementCountCommand))]
-    private int count;
+    public int count;
+
+    public bool IsHighCount => Count >= 10;
 
     [RelayCommand]
     public void IncrementCount()

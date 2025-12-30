@@ -21,7 +21,18 @@
             <Label
                 Text="{Binding Count}"
                 FontSize="48"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center">
+                <Label.Triggers>
+                    <DataTrigger
+                        TargetType="Label"
+                        Binding="{Binding IsHighCount}"
+                        Value="True">
+                        <Setter
+                            Property="TextColor"
+                            Value="Red" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
 
             <Button
                 x:Name="CounterBtn"
